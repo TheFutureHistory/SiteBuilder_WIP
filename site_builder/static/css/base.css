@@ -1,0 +1,59 @@
+:root {
+--white: rgba(255, 255, 255, 1);
+--white75: rgba(255, 255, 255, 0.75);
+--white50: rgba(255, 255, 255, 0.5);
+--white25: rgba(255, 255, 255, 0.25);
+--black: rgba(0, 0, 0, 1);
+--black75: rgba(0, 0, 0, 0.75);
+--black50: rgba(0, 0, 0, 0.5);
+--black25: rgba(0, 0, 0, 0.25);
+--font_small: 16px;
+--font_medium: 20px;
+--font_big: 25px;
+--blur_small: 5px;
+--blur_medium: 10px;
+--blur_large:20px;
+--border_small: 5px;
+--border_medium: 15px;
+--border_large: 25px;
+--border_circle: 50%;
+}
+html {
+height: 100%;
+margin: 0;
+font-family: "Poppins", sans-serif;
+background-color: var(--white);
+overflow: hidden;
+}
+body {
+height: 100%;
+margin: 0;
+font-family: "Poppins", sans-serif;
+background-color: var(--white);
+overflow: auto;
+font-size: 16px;
+}
+textarea:focus,
+input:focus,
+select:focus {
+outline: none;
+}
+select:-moz-focusring {
+color: transparent;
+text-shadow: 0 0 0 #000;
+}
+
+input[type="text" i] {
+padding-block:0px;
+padding-inline: 0px;
+}
+input[type="color" i]{
+    appearance: none;
+    border:solid 0px red;
+    border-width: 0;
+    padding:0;
+    box-sizing:unset;
+}
+input[type="color" i]::-webkit-color-swatch{
+    border:none;
+  }

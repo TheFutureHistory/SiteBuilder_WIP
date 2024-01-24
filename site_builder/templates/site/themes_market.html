@@ -1,0 +1,10 @@
+{% extends 'base.html' %}
+{% load static %}
+
+{% block content %}
+<h1>THEMES MARKET</h1>
+{{ request.user }}
+<a href="{% url 'theme_basic' %}"><button>BASIC</button></a>
+<a href="{% url 'theme_medium' %}"><button>MEDIUM</button></a>
+<a href="{% url 'theme_pro' %}"><button>PRO</button></a>
+{% endblock %}

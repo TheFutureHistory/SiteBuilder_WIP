@@ -1,0 +1,549 @@
+{% block content %}
+<button id="site_designer_opener" onclick="openDesigner()">DESIGN</button>
+<div id="site_designer_panel_cont">
+    <section id="sd_title_cont">
+        <h1>Settings</h1>
+        <i class="fa-solid fa-xmark" id="site_designer_closer" onclick="closeDesigner()"></i>
+    </section>
+
+    <section id="site_designer_panel">
+        <section id="sd_background_img_cont" class="sd_section_cont">
+            <section class="sd_section_titles_cont">
+                <h2 class="sd_section_titles" id="sd_accordion_background">BACKGROUND</h2>
+                <i class="fa-solid fa-circle-info sd_info_icons"></i>
+            </section>
+            <div class="sd_dropdown">
+                <section id="sd_background_img_selector">
+                    <button class="sd_tab_btn" id="background_url_btn">URL</button>
+                    <button class="sd_tab_btn" id="background_color_btn">COLOR</button>
+                </section>
+                <div id="background_url_cont">          
+                    <label class="sd_inputs_labels" for="sd_background_img">URL</label>
+                    <input class="sd_inputs" id="sd_background_img" type="URL" placeholder="https://...">
+                </div>
+                <div id="background_color_cont">
+                    <label class="sd_inputs_labels" for="sd_background_img">Color</label>
+                    <input type="color" class="color_selector" id="background_color_input">
+                </div>
+            </div>
+        </section>
+    
+        <section id="sd_background_overlay_cont" class="sd_section_cont">
+            <section class="sd_section_titles_cont">
+                <h2 class="sd_section_titles" id="sd_accordion_overlay">BACKGROUND OVERLAY</h2>
+                <i class="fa-solid fa-circle-info sd_info_icons"></i>
+            </section>
+            <div class="sd_dropdown">
+                <label class="sd_inputs_labels" for="sd_background_color">Color</label>
+                <input type="color" class="color_selector" id="sd_background_color">
+                <label class="sd_inputs_labels" for="sd_background_opacity">Opacity</label>
+                <div class="input_slider">
+                    <input type="range" id="sd_background_opacity" min="0" max="100" value="0" oninput="rangeValue.innerText = this.value"  >
+                    <p id="rangeValue">0</p>
+                </div> 
+            </div>
+        </section>
+    
+        <section id="sd_information_card_cont" class="sd_section_cont">
+            <section class="sd_section_titles_cont">
+                <h2 class="sd_section_titles" id="sd_accordion_infoCard">INFORMATION CARD</h2>
+                <i class="fa-solid fa-circle-info sd_info_icons"></i>
+            </section>
+            <div class="sd_dropdown">
+                <label  class="sd_inputs_labels" for="sd_info_card_position_selector">Position</label>
+                <section class="sd_card_selectors">
+                    <button class="sd_select_btn" id="info_card_position_left">LEFT</button>
+                    <button class="sd_select_btn" id="info_card_position_center">CENTER</button>
+                    <button class="sd_select_btn" id="info_card_position_right">RIGHT</button>
+                </section>
+                <label  class="sd_inputs_labels" for="sd_background_borderR_selector">Border Radius</label>
+                <section class="sd_card_selectors" id="sd_background_borderR_selector">
+                    <button class="sd_select_btn" id="background_borderR_selector_small">SMALL</button>
+                    <button class="sd_select_btn" id="background_borderR_selector_medium">MEDIUM</button>
+                    <button class="sd_select_btn" id="background_borderR_selector_large">LARGE</button>
+                </section>
+                <label  class="sd_inputs_labels" for="sd_border_selector">Border Style</label>
+                <section class="sd_card_selectors" id="sd_border_selector">
+                    <button class="sd_select_btn" id="info_card_borderZero">NONE</button>
+                    <button class="sd_select_btn" id="info_card_borderSolid">SOLID</button>
+                    <button class="sd_select_btn" id="info_card_borderDouble">DOUBLE</button>
+                    <button class="sd_select_btn" id="info_card_borderInset">INSET</button>
+                    <button class="sd_select_btn" id="info_card_borderOutset">OUTSET</button>
+                </section>
+                <label  class="sd_inputs_labels" for="sd_border_size_selector">Border Size</label>
+                <section class="sd_card_selectors" id="sd_border_size_selector">
+                    <button class="sd_select_btn" id="info_card_borderSizeZero">NONE</button>
+                    <button class="sd_select_btn" id="info_card_borderSizeSmall">SMALL</button>
+                    <button class="sd_select_btn" id="info_card_borderSizeMedium">MEDIUM</button>
+                    <button class="sd_select_btn" id="info_card_borderSizeLarge">LARGE</button>
+                </section>
+                <label class="sd_inputs_labels" for="info_card_border_color">Border Color</label>
+                <input type="color" class="color_selector" id="info_card_border_color">
+                <label class="sd_inputs_labels" for="sd_card_color">Background Color</label>
+                <input type="color" class="color_selector" id="sd_car_color">
+                <label class="sd_inputs_labels" for="sd_card_background_opacity">Background Opacity</label>
+                <div class="input_slider">
+                    <input type="range" id="sd_card_background_opacity" min="0" max="100" value="0" oninput="card_rangeValue.innerText = this.value"  >
+                    <p id="card_rangeValue">0</p>
+                </div> 
+                <label  class="sd_inputs_labels" for="sd_background_blur_selector">Background Blur</label>
+                <section class="sd_card_selectors" id="sd_background_blur_selector">
+                    <button class="sd_select_btn" id="background_blur_none">NONE</button>
+                    <button class="sd_select_btn" id="background_blur_small">WEAK</button>
+                    <button class="sd_select_btn" id="background_blur_medium">MILD</button>
+                    <button class="sd_select_btn" id="background_blur_large">STRONG</button>
+                </section>
+            </div>
+        </section>
+
+        <section id="sd_main_image_cont" class="sd_section_cont">
+            <section class="sd_section_titles_cont">
+                <h2 class="sd_section_titles" id="sd_accordion_mainImg">MAIN IMAGE</h2>
+            </section>
+            <div class="sd_dropdown">
+                <label class="sd_inputs_labels" for="sd_main_img">URL</label>
+                <input class="sd_inputs" id="sd_main_img" type="URL" placeholder="https://...">
+                <label  class="sd_inputs_labels" for="sd_main_img_position_selector">Position</label>
+                <section class="sd_card_selectors">
+                    <button class="sd_select_btn" id="main_img_position_left">LEFT</button>
+                    <button class="sd_select_btn" id="main_img_position_center">CENTER</button>
+                    <button class="sd_select_btn" id="main_img_position_right">RIGHT</button>
+                </section>
+                <label  class="sd_inputs_labels" for="sd_main_img_shape_selector">Shape</label>
+                <section class="sd_card_selectors" id="sd_main_img_shape_selector">
+                    <button class="sd_select_btn" id="main_img_shape_sq1">SQUARE</button>
+                    <button class="sd_select_btn" id="main_img_shape_sq2">SQ 2</button>
+                    <button class="sd_select_btn" id="main_img_shape_sq3">SQ 3</button>
+                    <button class="sd_select_btn" id="main_img_shape_sq4">SQ 4</button>
+                    <button class="sd_select_btn" id="main_img_shape_circle">CIRCLE</button>
+                </section>
+                <label  class="sd_inputs_labels" for="sd_border_selector">Border Style</label>
+                <section class="sd_card_selectors" id="sd_border_selector">
+                    <button class="sd_select_btn" id="main_img_borderZero">NONE</button>
+                    <button class="sd_select_btn" id="main_img_borderSolid">SOLID</button>
+                    <button class="sd_select_btn" id="main_img_borderDouble">DOUBLE</button>
+                    <button class="sd_select_btn" id="main_img_borderInset">INSET</button>
+                    <button class="sd_select_btn" id="main_img_borderOutset">OUTSET</button>
+                </section>
+                <label  class="sd_inputs_labels" for="sd_border_size_selector">Border Size</label>
+                <section class="sd_card_selectors" id="sd_border_size_selector">
+                    <button class="sd_select_btn" id="main_img_borderSizeZero">NONE</button>
+                    <button class="sd_select_btn" id="main_img_borderSizeSmall">SMALL</button>
+                    <button class="sd_select_btn" id="main_img_borderSizeMedium">MEDIUM</button>
+                    <button class="sd_select_btn" id="main_img_borderSizeLarge">LARGE</button>
+                </section>
+                <label class="sd_inputs_labels" for="main_img_border_color">Border Color</label>
+                <input type="color" class="color_selector" id="main_img_border_color">
+            </div>
+        </section>
+
+        <section id="sd_text_title_cont" class="sd_section_cont">
+            <section class="sd_section_titles_cont">
+                <h2 class="sd_section_titles" id="sd_accordion_title">TEXT • Title</h2>
+            </section>
+            <div class="sd_dropdown">
+                <input class="sd_inputs" id="sd_main_title" type="text" >
+                <label  class="sd_inputs_labels" for="sd_title_fontFam_select">Font</label>
+                <select class="sd_select_fields" id="sd_title_fontFam_select">
+                    <option value="0">Select a font</option>
+                    <option value="1">Audi</option>
+                </select>
+                <label  class="sd_inputs_labels" for="sd_title_alignt_selector">Align</label>
+                <section class="sd_card_selectors" id="sd_title_align_selector">
+                    <button class="sd_select_btn" id="sd_title_align_left">LEFT</button>
+                    <button class="sd_select_btn" id="sd_title_align_center">CENTER</button>
+                    <button class="sd_select_btn" id="sd_title_align_right">RIGHT</button>
+                </section>
+                <label  class="sd_inputs_labels" for="sd_title_style_select">Style</label>
+                <section class="sd_card_selectors" id="sd_title_style_select">
+                    <button class="sd_select_btn"  id="sd_title_style_normal">NORMAL</button>
+                    <button class="sd_select_btn" id="sd_title_style_italic"><span style="font-style: italic;">ITALIC</span></button>
+                </section>
+                <label  class="sd_inputs_labels" for="sd_title_weight_select">Weight</label>
+                <section class="sd_card_selectors" id="sd_title_weight_select">
+                    <button class="sd_select_btn" id="sd_title_weight_thin"><span style="font-weight: 300 !important;">THIN</span></button>
+                    <button class="sd_select_btn" id="sd_title_weight_regular"><span style="font-weight: 500 !important;">REGULAR</span></button>
+                    <button class="sd_select_btn" id="sd_title_weight_bold"><span style="font-weight: 700 !important ;">BOLD</span></button>
+                    <button class="sd_select_btn" id="sd_title_weight_thick"><span style="font-weight: 900 !important;">THICK</span></button>
+                </section>
+                <label  class="sd_inputs_labels" for="sd_title_transform_selector">Transform</label>
+                <section class="sd_card_selectors" id="sd_title_transform_selector">
+                    <button class="sd_select_btn" id="sd_title_transform_none">None</button>
+                    <button class="sd_select_btn" id="sd_title_transform_capitalize">Capitalize</button>
+                    <button class="sd_select_btn"  id="sd_title_transform_lower">lower</button>
+                    <button class="sd_select_btn"  id="sd_title_transform_upper">UPPER</button>
+                </section>
+                <label  class="sd_inputs_labels" for="sd_title_decorate_selector">Decorate</label>
+                <section class="sd_card_selectors" id="sd_title_decorate_selector">
+                    <button class="sd_select_btn" id="sd_title_decorate_none"><span style="text-decoration: none;">NONE</span></button>
+                    <button class="sd_select_btn" id="sd_title_decorate_over"><span style="text-decoration: overline;">OVER</span></button>
+                    <button class="sd_select_btn" id="sd_title_decorate_strike"><span style="text-decoration: line-through;">STRIKE</span></button>
+                    <button class="sd_select_btn" id="sd_title_decorate_under"><span style="text-decoration: underline;">UNDER</span></button>
+                    <button class="sd_select_btn" id="sd_title_decorate_both"><span style="text-decoration: overline underline;">BOTH</span></button>
+                </section>
+                <label class="sd_inputs_labels" for="title_color">Color</label>
+                <input type="color" class="color_selector" id="title_color">
+            </div>
+        </section>
+
+        <section id="sd_subtitle_cont" class="sd_section_cont">
+            <section class="sd_section_titles_cont">
+                <h2 class="sd_section_titles" id="sd_accordion_subtitle">TEXT • Subtitle</h2>
+            </section>
+            <div class="sd_dropdown">
+                <input class="sd_inputs" id="sd_main_subtitle" type="text" >
+                <label  class="sd_inputs_labels" for="sd_font_selector">Font</label>
+                <select class="sd_select_fields" id="sd_font_selector">
+                    <option value="0">Select a font</option>
+                    <option value="1">Audi</option>
+                </select>
+                <label  class="sd_inputs_labels" for="sd_subtitle_alignt_selector">Align</label>
+                <section class="sd_card_selectors" id="sd_subtitle_align_selector">
+                    <button class="sd_select_btn" id="sd_subtitle_align_left">LEFT</button>
+                    <button class="sd_select_btn" id="sd_subtitle_align_center">CENTER</button>
+                    <button class="sd_select_btn" id="sd_subtitle_align_right">RIGHT</button>
+                </section>
+                <label  class="sd_inputs_labels" for="sd_font_style_selector">Style</label>
+                <section class="sd_card_selectors" id="sd_font_style_selector">
+                    <button class="sd_select_btn"  id="sd_subtitle_style_normal">NORMAL</button>
+                    <button class="sd_select_btn" id="sd_subtitle_style_italic"><span style="font-style: italic;">ITALIC</span></button>
+                </section>
+                <label  class="sd_inputs_labels" for="sd_font_weight_selector">Weight</label>
+                <section class="sd_card_selectors" id="sd_font_weight_selector">
+                    <button class="sd_select_btn" id="sd_subtitle_weight_thin"><span style="font-weight: 300 !important;">THIN</span></button>
+                    <button class="sd_select_btn" id="sd_subtitle_weight_regular"><span style="font-weight: 500 !important;">REGULAR</span></button>
+                    <button class="sd_select_btn" id="sd_subtitle_weight_bold"><span style="font-weight: 700 !important ;">BOLD</span></button>
+                    <button class="sd_select_btn" id="sd_subtitle_weight_thick"><span style="font-weight: 900 !important;">THICK</span></button>
+                </section>
+                <label  class="sd_inputs_labels" for="sd_subtitle_transform_selector">Transform</label>
+                <section class="sd_card_selectors" id="sd_subtitle_transform_selector">
+                    <button class="sd_select_btn" id="sd_subtitle_transform_none">None</button>
+                    <button class="sd_select_btn" id="sd_subtitle_transform_capitalize">Capitalize</button>
+                    <button class="sd_select_btn"  id="sd_subtitle_transform_lower">lower</button>
+                    <button class="sd_select_btn"  id="sd_subtitle_transform_upper">UPPER</button>
+                </section>
+                <label  class="sd_inputs_labels" for="sd_subtitle_decorate_selector">Decorate</label>
+                <section class="sd_card_selectors" id="sd_subtitle_decorate_selector">
+                    <button class="sd_select_btn" id="sd_subtitle_decorate_none"><span style="text-decoration: none;">NONE</span></button>
+                    <button class="sd_select_btn" id="sd_subtitle_decorate_over"><span style="text-decoration: overline;">OVER</span></button>
+                    <button class="sd_select_btn" id="sd_subtitle_decorate_strike"><span style="text-decoration: line-through;">STRIKE</span></button>
+                    <button class="sd_select_btn" id="sd_subtitle_decorate_under"><span style="text-decoration: underline;">UNDER</span></button>
+                    <button class="sd_select_btn" id="sd_subtitle_decorate_both"><span style="text-decoration: overline underline;">BOTH</span></button>
+                </section>
+                <label class="sd_inputs_labels" for="sd_subtitle_color">Color</label>
+                <input type="color" class="color_selector" id="sd_subtitle_color">
+            </div>
+        </section>
+
+        <section id="sd_description_cont" class="sd_section_cont">
+            <section class="sd_section_titles_cont">
+                <h2 class="sd_section_titles" id="sd_accordion_description">TEXT • Description</h2>
+            </section>
+            <div class="sd_dropdown">
+                <textarea class="sd_text_area" id="sd_main_description" name="" cols="30" rows="10" maxlength="160"></textarea>
+                <label  class="sd_inputs_labels" for="sd_font_selector">Font</label>
+                <select class="sd_select_fields" id="sd_font_selector">
+                    <option value="0">Select a font</option>
+                    <option value="1">Audi</option>
+                </select>
+                <label  class="sd_inputs_labels" for="sd_font_style_selector">Style</label>
+                <section class="sd_card_selectors" id="sd_font_style_selector">
+                    <button class="sd_select_btn"  id="sd_description_style_normal">NORMAL</button>
+                    <button class="sd_select_btn" id="sd_description_style_italic"><span style="font-style: italic;">ITALIC</span></button>
+                </section>
+                <label  class="sd_inputs_labels" for="sd_font_weight_selector">Weight</label>
+                <section class="sd_card_selectors" id="sd_font_weight_selector">
+                    <button class="sd_select_btn" id="sd_description_weight_thin"><span style="font-weight: 300 !important;">THIN</span></button>
+                    <button class="sd_select_btn" id="sd_description_weight_regular"><span style="font-weight: 500 !important;">REGULAR</span></button>
+                    <button class="sd_select_btn" id="sd_description_weight_bold"><span style="font-weight: 700 !important ;">BOLD</span></button>
+                    <button class="sd_select_btn" id="sd_description_weight_thick"><span style="font-weight: 900 !important;">THICK</span></button>
+                </section>
+                <label  class="sd_inputs_labels" for="sd_description_align_select">Align</label>
+                <section class="sd_card_selectors" id="sd_description_align_select">
+                    <button class="sd_select_btn" id="sd_description_align_left">LEFT</button>
+                    <button class="sd_select_btn" id="sd_description_align_center">CENTER</button>
+                    <button class="sd_select_btn" id="sd_description_align_right">RIGHT</button>
+                </section>
+                <label  class="sd_inputs_labels" for="sd_description_transform_select">Transform</label>
+                <section class="sd_card_selectors" id="sd_description_transform_select">
+                    <button class="sd_select_btn" id="sd_description_transform_none">None</button>
+                    <button class="sd_select_btn" id="sd_description_transform_capitalize">Capitalize</button>
+                    <button class="sd_select_btn"  id="sd_description_transform_lower">lower</button>
+                    <button class="sd_select_btn"  id="sd_description_transform_upper">UPPER</button>
+                </section>
+                <label  class="sd_inputs_labels" for="sd_description_decorate_select">Decorate</label>
+                <section class="sd_card_selectors" id="sd_description_decorate_select">
+                    <button class="sd_select_btn" id="sd_description_decorate_none"><span style="text-decoration: none;">NONE</span></button>
+                    <button class="sd_select_btn" id="sd_description_decorate_over"><span style="text-decoration: overline;">OVER</span></button>
+                    <button class="sd_select_btn" id="sd_description_decorate_strike"><span style="text-decoration: line-through;">STRIKE</span></button>
+                    <button class="sd_select_btn" id="sd_description_decorate_under"><span style="text-decoration: underline;">UNDER</span></button>
+                    <button class="sd_select_btn" id="sd_description_decorate_both"><span style="text-decoration: overline underline;">BOTH</span></button>
+                </section>
+                <label class="sd_inputs_labels" for="sd_description_color">Color</label>
+                <input type="color" class="color_selector" id="sd_description_color">
+            </div>
+        </section>
+
+        <section id="sd_link_icons_cont" class="sd_section_cont">
+            <section class="sd_section_titles_cont">
+                <h2 class="sd_section_titles" id="sd_accordion_linksIcons">LINKS ICONS</h2>
+            </section>
+            <div class="sd_dropdown">
+                <label  class="sd_inputs_labels" for="link_icons_cont">Icon #1</label>
+                <div class="link_icons_cont" id="link_icons_cont">
+                    <select class="sd_select_fields" id="sd_icon_selector1">
+                        <optgroup label="Alphabetical Order" class="link_icons_select">
+                            <option value="0" disabled selected>Select an Icon</option>
+                            <option value="envelope">Email</option>
+                            <option value="airbnb">Airbnb</option>
+                            <option value="amazon">Amazon</option>
+                            <option value="behance">Behance</option>
+                            <option value="discord">Discord</option>
+                            <option value="facebook-f">Facebook</option>
+                            <option value="figma">Figma</option>
+                            <option value="github">GitHub</option>
+                            <option value="hacker-news">Hacker News</option>
+                            <option value="houzz">Houzz</option>
+                            <option value="imdb">IMDb</option>
+                            <option value="instagram">Instagram</option>
+                            <option value="kickstarter">Kickstarter</option>
+                            <option value="linkedin">LinkedIn</option>
+                            <option value="patreon">Patreon</option>
+                            <option value="paypal">PayPal</option>
+                            <option value="pinterest">Pinterest</option>
+                            <option value="playstation">PlayStation</option>
+                            <option value="product-hunt">Product Hunt</option>
+                            <option value="reddit-alien">Reddit</option>
+                            <option value="shopify">Shopify</option>
+                            <option value="slack">Slack</option>
+                            <option value="soundcloud">SoundCloud</option>
+                            <option value="spotify">Spotify</option>
+                            <option value="stack-overflow">Stack Overflow</option>
+                            <option value="stripe">Stripe</option>
+                            <option value="squarespace">Squarespace</option>
+                            <option value="steam">Steam</option>
+                            <option value="tiktok">TikTok</option>
+                            <option value="trello">Trello</option>
+                            <option value="tripadvisor">TripAdvisor</option>
+                            <option value="tumblr">Tumblr</option>
+                            <option value="twitter">Twitter</option>
+                            <option value="upwork">Upwork</option>
+                            <option value="vimeo">Vimeo</option>
+                            <option value="weebly">Weebly</option>
+                            <option value="whatsapp">WhatsApp</option>
+                            <option value="x-twitter">X</option>
+                            <option value="xbox">Xbox</option>
+                            <option value="y-combinator">Y-combinator</option>
+                            <option value="yelp">Yelp</option>
+                            <option value="youtube">Youtube</option>
+                        </optgroup>
+                    </select>
+                    <label class="sd_inputs_labels" for="sd_icon_url">URL</label>
+                    <input class="sd_inputs" id="sd_icon_url1" type="URL" >
+                </div>
+                <label  class="sd_inputs_labels" for="link_icons_cont">Icon #2</label>
+                <div class="link_icons_cont" id="link_icons_cont">
+                    <select class="sd_select_fields" id="sd_icon_selector2">
+                        <optgroup label="Alphabetical Order" class="link_icons_select">
+                            <option value="0" disabled selected>Select an Icon</option>
+                            <option value="envelope">Email</option>
+                            <option value="airbnb">Airbnb</option>
+                            <option value="amazon">Amazon</option>
+                            <option value="behance">Behance</option>
+                            <option value="discord">Discord</option>
+                            <option value="facebook-f">Facebook</option>
+                            <option value="figma">Figma</option>
+                            <option value="github">GitHub</option>
+                            <option value="hacker-news">Hacker News</option>
+                            <option value="houzz">Houzz</option>
+                            <option value="imdb">IMDb</option>
+                            <option value="instagram">Instagram</option>
+                            <option value="kickstarter">Kickstarter</option>
+                            <option value="linkedin">LinkedIn</option>
+                            <option value="patreon">Patreon</option>
+                            <option value="paypal">PayPal</option>
+                            <option value="pinterest">Pinterest</option>
+                            <option value="playstation">PlayStation</option>
+                            <option value="product-hunt">Product Hunt</option>
+                            <option value="reddit-alien">Reddit</option>
+                            <option value="shopify">Shopify</option>
+                            <option value="slack">Slack</option>
+                            <option value="soundcloud">SoundCloud</option>
+                            <option value="spotify">Spotify</option>
+                            <option value="stack-overflow">Stack Overflow</option>
+                            <option value="stripe">Stripe</option>
+                            <option value="squarespace">Squarespace</option>
+                            <option value="steam">Steam</option>
+                            <option value="tiktok">TikTok</option>
+                            <option value="trello">Trello</option>
+                            <option value="tripadvisor">TripAdvisor</option>
+                            <option value="tumblr">Tumblr</option>
+                            <option value="twitter">Twitter</option>
+                            <option value="upwork">Upwork</option>
+                            <option value="vimeo">Vimeo</option>
+                            <option value="weebly">Weebly</option>
+                            <option value="whatsapp">WhatsApp</option>
+                            <option value="x-twitter">X</option>
+                            <option value="xbox">Xbox</option>
+                            <option value="y-combinator">Y-combinator</option>
+                            <option value="yelp">Yelp</option>
+                            <option value="youtube">Youtube</option>
+                        </optgroup>
+                    </select>
+                    <label class="sd_inputs_labels" for="sd_icon_url">URL</label>
+                    <input class="sd_inputs" id="sd_icon_url2" type="URL" >
+                </div>
+                <label  class="sd_inputs_labels" for="link_icons_cont">Icon #3</label>
+                <div class="link_icons_cont" id="link_icons_cont">
+                    <select class="sd_select_fields" id="sd_icon_selector3">
+                        <optgroup label="Alphabetical Order" class="link_icons_select">
+                            <option value="0" disabled selected>Select an Icon</option>
+                            <option value="envelope">Email</option>
+                            <option value="airbnb">Airbnb</option>
+                            <option value="amazon">Amazon</option>
+                            <option value="behance">Behance</option>
+                            <option value="discord">Discord</option>
+                            <option value="facebook-f">Facebook</option>
+                            <option value="figma">Figma</option>
+                            <option value="github">GitHub</option>
+                            <option value="hacker-news">Hacker News</option>
+                            <option value="houzz">Houzz</option>
+                            <option value="imdb">IMDb</option>
+                            <option value="instagram">Instagram</option>
+                            <option value="kickstarter">Kickstarter</option>
+                            <option value="linkedin">LinkedIn</option>
+                            <option value="patreon">Patreon</option>
+                            <option value="paypal">PayPal</option>
+                            <option value="pinterest">Pinterest</option>
+                            <option value="playstation">PlayStation</option>
+                            <option value="product-hunt">Product Hunt</option>
+                            <option value="reddit-alien">Reddit</option>
+                            <option value="shopify">Shopify</option>
+                            <option value="slack">Slack</option>
+                            <option value="soundcloud">SoundCloud</option>
+                            <option value="spotify">Spotify</option>
+                            <option value="stack-overflow">Stack Overflow</option>
+                            <option value="stripe">Stripe</option>
+                            <option value="squarespace">Squarespace</option>
+                            <option value="steam">Steam</option>
+                            <option value="tiktok">TikTok</option>
+                            <option value="trello">Trello</option>
+                            <option value="tripadvisor">TripAdvisor</option>
+                            <option value="tumblr">Tumblr</option>
+                            <option value="twitter">Twitter</option>
+                            <option value="upwork">Upwork</option>
+                            <option value="vimeo">Vimeo</option>
+                            <option value="weebly">Weebly</option>
+                            <option value="whatsapp">WhatsApp</option>
+                            <option value="x-twitter">X</option>
+                            <option value="xbox">Xbox</option>
+                            <option value="y-combinator">Y-combinator</option>
+                            <option value="yelp">Yelp</option>
+                            <option value="youtube">Youtube</option>
+                        </optgroup>
+                    </select>
+                    <label class="sd_inputs_labels" for="sd_icon_url">URL</label>
+                    <input class="sd_inputs" id="sd_icon_url3" type="URL" >
+                </div>
+                <label  class="sd_inputs_labels" for="link_icons_cont">Icon #4</label>
+                <div class="link_icons_cont" id="link_icons_cont">
+                    <select class="sd_select_fields" id="sd_icon_selector4">
+                        <optgroup label="Alphabetical Order" class="link_icons_select">
+                            <option value="0" disabled selected>Select an Icon</option>
+                            <option value="envelope">Email</option>
+                            <option value="airbnb">Airbnb</option>
+                            <option value="amazon">Amazon</option>
+                            <option value="behance">Behance</option>
+                            <option value="discord">Discord</option>
+                            <option value="facebook-f">Facebook</option>
+                            <option value="figma">Figma</option>
+                            <option value="github">GitHub</option>
+                            <option value="hacker-news">Hacker News</option>
+                            <option value="houzz">Houzz</option>
+                            <option value="imdb">IMDb</option>
+                            <option value="instagram">Instagram</option>
+                            <option value="kickstarter">Kickstarter</option>
+                            <option value="linkedin">LinkedIn</option>
+                            <option value="patreon">Patreon</option>
+                            <option value="paypal">PayPal</option>
+                            <option value="pinterest">Pinterest</option>
+                            <option value="playstation">PlayStation</option>
+                            <option value="product-hunt">Product Hunt</option>
+                            <option value="reddit-alien">Reddit</option>
+                            <option value="shopify">Shopify</option>
+                            <option value="slack">Slack</option>
+                            <option value="soundcloud">SoundCloud</option>
+                            <option value="spotify">Spotify</option>
+                            <option value="stack-overflow">Stack Overflow</option>
+                            <option value="stripe">Stripe</option>
+                            <option value="squarespace">Squarespace</option>
+                            <option value="steam">Steam</option>
+                            <option value="tiktok">TikTok</option>
+                            <option value="trello">Trello</option>
+                            <option value="tripadvisor">TripAdvisor</option>
+                            <option value="tumblr">Tumblr</option>
+                            <option value="twitter">Twitter</option>
+                            <option value="upwork">Upwork</option>
+                            <option value="vimeo">Vimeo</option>
+                            <option value="weebly">Weebly</option>
+                            <option value="whatsapp">WhatsApp</option>
+                            <option value="x-twitter">X</option>
+                            <option value="xbox">Xbox</option>
+                            <option value="y-combinator">Y-combinator</option>
+                            <option value="yelp">Yelp</option>
+                            <option value="youtube">Youtube</option>
+                        </optgroup>
+                    </select>
+                    <label class="sd_inputs_labels" for="sd_icon_url">URL</label>
+                    <input class="sd_inputs" id="sd_icon_url4" type="URL" >
+                </div>
+                <button id="add_icon_btn" type="button">ADD ICON</button>
+                <label class="sd_inputs_labels" for="sd_icon_color">Color</label>
+                <input type="color" class="color_selector" id="sd_icon_color">
+                <label  class="sd_inputs_labels" for="sd_icons_background_selector">Background Visibility</label>
+                <section class="sd_card_selectors" id="sd_icons_background_selector">
+                    <button class="sd_select_btn" id="icons_background_none">NONE</button>
+                    <button class="sd_select_btn"  id="icons_background_visible">VISIBLE</button>
+                </section>
+                <div id="icons_background_visibility_opt">
+                    <label class="sd_inputs_labels" for="sd_icon_background_color">Background Color</label>
+                    <input type="color" class="color_selector" id="sd_icon_background_color">
+                </div>
+                <label  class="sd_inputs_labels" for="sd_icons_shape_selector">Background Shape</label>
+                <section class="sd_card_selectors" id="sd_icons_shape_selector">
+                    <button class="sd_select_btn" id="icons_background_square">SQUARE</button>
+                    <button class="sd_select_btn" id="icons_background_sq2">SQ 2</button>
+                    <button class="sd_select_btn" id="icons_background_sq3">SQ 3</button>
+                    <button class="sd_select_btn" id="icons_background_sq4">SQ 4</button>
+                    <button class="sd_select_btn" id="icons_background_circle">CIRCLE</button>
+                </section>
+                <label  class="sd_inputs_labels" for="sd_icons_border_style_selector">Border Style</label>
+                <section class="sd_card_selectors" id="sd_icons_border_style_selector">
+                    <button class="sd_select_btn" id="icons_borderNone">NONE</button>
+                    <button class="sd_select_btn" id="icons_borderSolid">SOLID</button>
+                    <button class="sd_select_btn" id="icons_borderDouble">DOUBLE</button>
+                    <button class="sd_select_btn" id="icons_borderInset">INSET</button>
+                    <button class="sd_select_btn" id="icons_borderOutset">OUTSET</button>
+                </section>
+                <div id="icons_border_opt">
+                    <label class="sd_inputs_labels" for="sd_icon_background_color">Border Color</label>
+                    <input type="color" class="color_selector" id="sd_icon_border_color">
+                    <label  class="sd_inputs_labels" for="sd_icons_border_width_selector">Border Width</label>
+                    <section class="sd_card_selectors" id="sd_icons_border_width_selector">
+                        <button class="sd_select_btn" id="icons_borderWidthSmall">SMALL</button>
+                        <button class="sd_select_btn" id="icons_borderWidthMedium">MEDIUM</button>
+                        <button class="sd_select_btn" id="icons_borderWidthLarge">LARGE</button>
+                    </section>
+                </div>
+            </div>
+        </section>
+    </section>
+
+    <section id="sd_save_cont">
+        <button>DELETE</button>
+        <button>SAVE</button>
+        <button>PUBLISH</button>
+    </section>
+</div>
+
+{% endblock %}
